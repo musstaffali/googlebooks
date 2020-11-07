@@ -7,46 +7,29 @@ import {
   Button,
   Spinner
 } from 'reactstrap';
-import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.min.css';
 import axios from 'axios';
 import JournalBoard from './JournalBoard.jsx';
 function App() {
-  // States
-  const [maxResults, setMaxResults] = useState(10);
-  const [startIndex, setStartIndex] = useState(1);
-  const [query, setQuery] = useState('');
-  const [loading, setLoading] = useState(false);
-  const [cards, setCards] = useState([]);
-  // Handle Search
+  const [inquire, setQuery] = useState('');
+  const [stack, setLoading] = useState(false);
+  const [plastic, setCards] = useState([]);
   const driveComply = () => {
-    setLoading(true);
-    if (maxResults > 40 || maxResults < 1) {
-      toast.error('max results must be between 1 and 40');
-    } else {
       axios
         .get(
-          `https://www.googleapis.com/books/v1/volumes?q=${query}&maxResults=${maxResults}&startIndex=${startIndex}`
+          `https://www.googleapis.com/books/v1/volumes?q=${inquire}`
         )
         .then(res => {
-          if (startIndex >= res.data.totalItems || startIndex < 1) {
-            toast.error(
-              `max reults must be between 1 and ${res.data.totalItems}`
-            );
-          } else {
+    
             if (res.data.items.length > 0) {
               setCards(res.data.items);
               setLoading(false);
-            }
-          }
-        })
+            }})
         .catch(err => {
           setLoading(true);
           console.log(err.response);
         });
-    }
-  };
-  // Main Show Case
+    };
   const headline = () => {
     return (
       <div className='main-image d-flex justify-content-center align-items-center flex-column'>
@@ -58,11 +41,11 @@ function App() {
         >
           Google Books
         </h1>
-        <div style={{ width: '60%', zIndex: 2 }}>
+        <div style={{ width: '59%', zIndex: 2 }}>
           <InputGroup size='lg' className='mb-3'>
             <Input
               placeholder='Book Search'
-              value={query}
+              value={inquire}
               onChange={e => setQuery(e.target.value)}
             />
             <InputGroupAddon addonType='append'>
@@ -75,21 +58,19 @@ function App() {
       </div>
     );
   };
-
   const OperateCards = () => {
-    if (loading) {
+    if (stack) {
       return (
         <div className='d-flex justify-content-center mt-3'>
-          <Spinner style={{ width: '3rem', height: '3rem' }} />
+          <Spinner style={{ width: '4rem', height: '4rem' }} />
         </div>
       );
     } else {
-      const items = cards.map((item, i) => {
+      const items = plastic.map((item, i) => {
         let thumbnail = '';
         if (item.volumeInfo.imageLinks) {
           thumbnail = item.volumeInfo.imageLinks.thumbnail;
         }
-
         return (
           <div className='col-lg-4 mb-3' key={item.id}>
             <JournalBoard
@@ -114,10 +95,9 @@ function App() {
     }
   };
   return (
-    <div className='w-100 h-100'>
+    <div className='w-99 h-99'>
       {headline()}
       {OperateCards()}
-      <ToastContainer />
     </div>
   );
 }
