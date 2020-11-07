@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 This application is a MERN stack application using Express for backend communication and ReactJS for the front end framework. It uses a Mongodb Atlas database to save and delete searches made populating database through making a mongoose schema. It follows an MVC design pattern.
 
 Screenshot Previews
@@ -15,3 +16,6 @@ User can delete any saved book on the list
 Attributes
 
 
+=======
+
+>>>>>>> 4ef7e6334a83ef5f42ed6233f75c3f479c661b03
