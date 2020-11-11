@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
-import { Card, CardTitle, CardImg, CardBody, Button, Modal } from 'reactstrap';
+import React from 'react';
+import { Card, CardTitle, CardImg, CardBody, Button } from 'reactstrap';
 const JournalBoard = ({
   thumbnail,
   title,
@@ -10,8 +10,7 @@ const JournalBoard = ({
   previewLink
 }) => {
   // States
-  const [technique, setModal] = useState(false);
-  const paddle = () => setModal(!technique);
+
 
   return (
     <Card style={{ width: '222px' }} className='m-auto '>
@@ -23,13 +22,13 @@ const JournalBoard = ({
       />
       <CardBody>
         <CardTitle className='card-title'>{title}</CardTitle>
-        <Button onClick={paddle}>Main Idea</Button>
-        <Button onClick={paddle}>Save Book</Button>
+        <Button>Save Book</Button>
               <p>Language : {language}</p>
               <p>Authors : {authors}</p>
               <p>Publisher : {publisher}</p>
+              <p>Description : {description}</p>
       </CardBody>
-      <Modal isOpen={technique} paddle={paddle}>
+
         <div className='technique-header d-flex justify-content-center'>
           <h5 className='technique-title text-center' id='exampleModalLabel'>
             
@@ -38,7 +37,6 @@ const JournalBoard = ({
             aria-label='exit'
             className='exit'
             type='button'
-            onClick={paddle}
           >
             <span aria-hidden={true}>close</span>
           </button>
@@ -65,7 +63,6 @@ const JournalBoard = ({
             </a>
           </div>
         </div>
-      </Modal>
     </Card>
   );
 };
