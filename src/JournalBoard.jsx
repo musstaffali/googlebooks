@@ -10,13 +10,11 @@ const JournalBoard = ({
   previewLink
 }) => {
   // States
-
-
   return (
-    <Card style={{ width: '222px' }} className='m-auto '>
+    <Card style={{ width: '225px' }} className='m-auto '>
       <CardImg
         top
-        style={{ width: '99%', height: '222px' }}
+        style={{ width: '99%', height: '225px' }}
         src={thumbnail}
         alt={title}
       />
@@ -28,28 +26,6 @@ const JournalBoard = ({
               <p>Publisher : {publisher}</p>
               <p>Description : {description}</p>
       </CardBody>
-
-        <div className='technique-header d-flex justify-content-center'>
-          <h5 className='technique-title text-center' id='exampleModalLabel'>
-            
-          </h5>
-          <button
-            aria-label='exit'
-            className='exit'
-            type='button'
-          >
-            <span aria-hidden={true}>close</span>
-          </button>
-        </div>
-        <div className='technique-body'>
-          <div className='d-flex justify-content-between ml-3'>
-            <img  style={{ height: '222px' }} />
-            <div>
-            </div>
-          </div>
-          <div className='mt-3'>{description}</div>
-        </div>
-        <div className='technique-footer'>
           <div className='left-silde'>
             <a
               href={previewLink}
@@ -62,7 +38,6 @@ const JournalBoard = ({
               Preview to Google
             </a>
           </div>
-        </div>
     </Card>
   );
 };

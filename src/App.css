@@ -3,38 +3,35 @@ body {
 }
 
 .main-image {
-  background-color: aqua;
+  background-color: brown;
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
-  width: 100vw;
-  height: 30vh;
+  width: 99vw;
+  height: 29vh;
   position: relative;
   background-attachment: fixed;
 }
 
 .filter:after {
   background-color: darkgray;
-  content: '';
   display: block;
   height: 100%;
-  left: 0;
-  top: 0;
   position: absolute;
-  width: 100%;
+  width: 99%;
   z-index: 1;
 }
 
 .card-title {
-  background-color: darkgray;
+  background-color: white;
   overflow: hidden;
   color: rgba(0, 0, 0, 0.85);
-  font-weight: 500;
-  font-size: 16px;
+  font-weight: 499;
+  font-size: 17px;
   white-space: nowrap;
   text-overflow: ellipsis;
 }
 
 .card-body {
-  background-color: burlywood;
+  background-color: rgb(128, 128, 236)
 }

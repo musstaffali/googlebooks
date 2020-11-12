@@ -20,7 +20,6 @@ function App() {
           `https://www.googleapis.com/books/v1/volumes?q=${inquire}`
         )
         .then(res => {
-    
             if (res.data.items.length > 0) {
               setCards(res.data.items);
               setLoading(false);
@@ -33,7 +32,6 @@ function App() {
   const headline = () => {
     return (
       <div className='main-image d-flex justify-content-center align-items-center flex-column'>
-        {/* Overlay */}
         <div className='filter'></div>
         <h1
           className='display-2 text-center text-white mb-3'
